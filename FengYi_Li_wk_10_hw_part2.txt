@@ -1,0 +1,82 @@
+FengYi_Li_wk_10_hw_part 2
+
+1. What built-in JavaScript method creates an HTML element on the DOM? Please explain what it does. What is its syntax? What are the parameters? What is its return value? Please provide code from your Monsters Search API app as an example of using this built-in method.
+document.createElement(), it creates an HTML element on the page specified by tagName, or an HTMLUnknownElement if tagName is not recognized.
+const element = document.createElement(nodeName);
+Parameters:nodeName (type String): Required. The name of the element you want to create.
+Return value: a new Element.
+function createNode(element){return document.createElement(element);}
+
+
+2. What built-in JavaScript method sets the value of an attribute on a specified element? Please explain what it does. What is its syntax? What are its parameters? What exceptions can it throw? Please provide code used in the Week 10 Homework README.md as an example of how it could be used dynamically instead of the approach used in the actual project code.
+Element.setAttribute()
+This method sets the value of an attribute on the specified element. If the attribute already exists, the value is updated. Otherwise, a new attribute is added with the specified name and value.
+Element.setAttribute(name, value);
+Parameters:
+name: A DOMString specifying the name of the attribute whose value is to be set. The attribute name is automatically converted to all lower-case when setAttribute() is called on an HTML element residing in an HTML document.
+value: A DOMString containing the value to assign to the attribute. Any non-string value specified is automatically converted into a string.
+Return value: undefined.
+
+
+
+3. What is the built-in method that allows you to add a child node to a parent node? Please explain what it does. What is its syntax? What are its parameters? What is its return value? Please provide code from your Monsters Search API app as an example of using this built-in method.
+Node.appendChild(), appendChild() is a method of the Node interface.
+What is the Node interface? It is an interface that is implemented by a large number of objects, including document, and element.
+element.appendChild(aChild)
+Parameters:aChild, the node to append to the given parent node (commonly an element).
+Return value:, the returned value is the appended child (aChild), except when aChild is a DocumentFragment, in which case the empty DocumentFragment is returned.
+function append(parent, el) {parent.appendChild(el);}
+
+
+4. What is the built-in method that creates text inside an Element Node? Please explain what it does. What is its syntax? What are its parameters? What is its return value? Please provide a code example from the Manipulating The DOM: Creating Elements, Setting Attributes, Appending Children slide deck.
+document.createTextNode():, it creates a Text Node with the specified text. HTML elements often consist of both an element node and a text node. 
+document.createTextNode(text);
+Parameters:text (required): of type String. It is the text of the Text Node.
+Return value: A Text Node object with the created Text Node.
+const header = document.createElement("header");
+const headerTextNode = document.createTextNode("Come Fetch Your Monsters!");
+header.appendChild(headerTextNode);
+
+
+5. Provide a code example that uses the .createElement() method, the .createTextNode() method, and the .appendChild() method, altogether. Explain what is going on with the code.
+var newDiv = document.createElement("div"); 
+  // create a new div element 
+var newContent = document.createTextNode("Hello!");
+  // and give it some content 
+newDiv.appendChild(newContent);
+  // add the text node to the newly created div
+
+
+6. What properties do the same thing as the .createTextNode() method? And what is the difference between the two properties?
+.innerHTML properties do the same thing as the .createTextNode() method, the difference between the two properties is createTextNode will escape any strings and show them as they are, while innerHTML could render html-like strings into a DOM. 
+
+
+7. When is .createTextNode() preferable over .innerHTML?
+To display some text without the security risks that it might contain other markup that the browser would parse and interpret if you used .innerHTML. So, you create a Text Node and set the value of its text, and the browser won't interpret any HTML in it. 
+
+
+8. Does order matter when appending child nodes/elements to their parent node/element? Why?
+The appending order is not important, except none of appended elements shows up on the page, before the outmost parent element is appended.
+
+
+9. What does the return statement do?
+The return statement is used to return from a method when its execution is complete. When a return statement is reached in a method, the program returns to the code that invoked it.
+
+
+10. What does the console.log(monsters) called right before the monsters.map() method, print out to the Chrome Developer Tools console? Please copy and paste it as your answer to this question
+<ul id="monster">
+   <li>...<li>
+   <li>...<li>
+   <li>...<li>
+   <li>...<li>
+   <li>...<li>
+   <li>...<li>
+   <li>...<li>
+   <li>...<li>
+   <li>...<li>
+   <li>...<li>
+</ul>
+
+11. What does the console.log(monster) called inside the monsters.map() method, at the top, print out to Chrome Developer Tools console? Please copy and paste it as your answer to this question.
+Uncaught ReferenceError: monster is not defined
+    at <anonymous>
